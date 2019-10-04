@@ -30,9 +30,10 @@ def custom_len(input_list):
         8
 
     """
-
-    return 0
-
+    count = 0
+    for item in input_list:
+        count+=1
+    return count
 
 # For the next four exercises, you'll need to be clever and think about ways
 # to use list slice assignment.
@@ -59,7 +60,8 @@ def custom_append(input_list, value):
 
     """
 
-    pass
+    input_list += [value]
+    
 
 
 def custom_extend(input_list, second_list):
@@ -77,9 +79,7 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
-    pass
-
+    input_list += second_list
 
 def custom_insert(input_list, index, value):
     """Insert value at index in the list.
@@ -95,8 +95,9 @@ def custom_insert(input_list, index, value):
         True
 
     """
+    input_list[index:] = [value, input_list[index]]
 
-    pass
+   
 
 
 def custom_remove(input_list, value):
@@ -115,7 +116,10 @@ def custom_remove(input_list, value):
 
     """
 
-    pass
+    for idx, item in enumerate(input_list):
+        if item == value:
+            del input_list[idx]
+            return
 
 
 def custom_pop(input_list):
@@ -133,8 +137,10 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
+    last_item = input_list[-1]
+    del input_list[-1]
 
-    return None
+    return last_item
 
 
 def custom_index(input_list, value):
@@ -149,8 +155,10 @@ def custom_index(input_list, value):
         1
 
     """
+    for idx, item in enumerate(input_list):
+        if item == value:
+            return idx
 
-    return 0
 
 
 def custom_count(input_list, value):
@@ -165,9 +173,12 @@ def custom_count(input_list, value):
         2
 
     """
+    count = 0
+    for item in input_list:
+        if item == value:
+            count += 1
 
-    return 0
-
+    return count
 
 def custom_reverse(input_list):
     """Reverse the elements of the input_list.
@@ -184,9 +195,7 @@ def custom_reverse(input_list):
         True
 
     """
-
-    pass
-
+    input_list[:] = input_list[-1::-1]
 
 def custom_contains(input_list, value):
     """Return True or False if value is in the input_list.
