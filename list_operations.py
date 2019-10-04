@@ -136,8 +136,7 @@ def delete_third_and_seventh(input_list):
     True
 
     """
-    del input_list[2]
-    del input_list[5]
+    input_list[:] = input_list[:2] + input_list[3:6] + input_list[7:]
 
 def delete_middle(input_list):
     """Remove all elements from input_list except the first two and last two.
