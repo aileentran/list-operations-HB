@@ -213,9 +213,7 @@ def custom_contains(input_list, value):
         True
 
     """
-
-    return None
-
+    return value in input_list
 
 def custom_equality(some_list, another_list):
     """Return True if passed lists are identical, False otherwise.
@@ -232,8 +230,11 @@ def custom_equality(some_list, another_list):
         False
 
     """
-
-    return None
+    if some_list[:] == another_list[:]:
+        return True
+    else:
+        return False
+   
 
 
 ##############################################################################
